@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +17,7 @@ class ViewController: UIViewController {
         view1.backgroundColor = .green
         let view2 = UIView()
         view2.backgroundColor = .systemIndigo
-        let view3 = UIView()
-        view3.backgroundColor = .cyan
+        let view3 = BottomControlView()
         
         let stackView = UIStackView(arrangedSubviews: [view1,view2,view3])
         stackView.translatesAutoresizingMaskIntoConstraints = false
