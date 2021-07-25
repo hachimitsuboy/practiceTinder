@@ -13,13 +13,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let view1 = TopControlView()
-        
-        let view2 = UIView()
-        view2.backgroundColor = .systemIndigo
+        let topControlView = TopControlView()
+        let cardView = CardView()
         let bottomControlView = BottomControlView()
         
-        let stackView = UIStackView(arrangedSubviews: [view1,view2,bottomControlView])
+        let stackView = UIStackView(arrangedSubviews: [topControlView,cardView,bottomControlView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         //view1,view2,view3をどの軸（縦か横か)で配置するか
         stackView.axis = .vertical
@@ -30,7 +28,7 @@ class HomeViewController: UIViewController {
         //制約を配列としてまとめて、forEatchで全ての要素（制約）をactiveにする
         [
             //高さを100にする
-            view1.heightAnchor.constraint(equalToConstant: 100),
+            topControlView.heightAnchor.constraint(equalToConstant: 100),
             bottomControlView.heightAnchor.constraint(equalToConstant: 120),
     
             stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
