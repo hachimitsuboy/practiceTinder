@@ -46,19 +46,21 @@ class TopControlView: UIView {
     private func setupLayout(){
         
         backgroundColor = .white
-        let stackView = UIStackView(arrangedSubviews: [matchingAppButton, goodButton, commentButton, profileButton])
+        let baseStackView = UIStackView(arrangedSubviews: [matchingAppButton, goodButton, commentButton, profileButton])
         
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 45
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        baseStackView.axis = .horizontal
+        baseStackView.distribution = .fillEqually
+        baseStackView.spacing = 45
+        baseStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(stackView)
+        addSubview(baseStackView)
         
-        [stackView.topAnchor.constraint(equalTo: topAnchor),
-         stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-         stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
-         stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40)].forEach {$0.isActive = true}
+        baseStackView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, leftPadding: 40, rightPadding: 40)
+//
+//        [stackView.topAnchor.constraint(equalTo: topAnchor),
+//         stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//         stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
+//         stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40)].forEach {$0.isActive = true}
         
         matchingAppButton.isSelected = true
         
@@ -69,38 +71,43 @@ class TopControlView: UIView {
         
         //matchingAppButtonが押された時
         //押された時の処理を.subscribeで登録しているのでは？？
+        
+        //matchingAppButton.rx.tapがObservable
+        //.subscribe .disponsedはObservableクラスメソッド（他にもある）
+        
+        //driveを使うと、メインスレッドで実行する・エラーを流さない（よくわからん）
         matchingAppButton.rx.tap
-            .subscribe { _ in
-                
-                //タップされたらここがまず呼ばれるらしい
-                //#function今いるメソッドの名前が呼ばれるらしい
+            .asDriver()
+            .drive(onNext: {[weak self] _ in
+                guard let self = self else{return}
                 self.handleSelectedButton(selectedButton: self.matchingAppButton)
-            }
-            //もう決まり文句らしい。ゴミ箱
+            })
             .disposed(by: disposeBag)
         
         
         goodButton.rx.tap
-            .subscribe { _ in
-                
-                //なぜhandleSelectedButtonメソッドにはselfがいるのか？
-                //→クロージャの中だから
+            .asDriver()
+            .drive(onNext: {[weak self] _ in
+                guard let self = self else{return}
                 self.handleSelectedButton(selectedButton: self.goodButton)
-            }
+            })
             .disposed(by: disposeBag)
         
+        
         commentButton.rx.tap
-            .subscribe { _ in
-                
+            .asDriver()
+            .drive(onNext: {[weak self] _ in
+                guard let self = self else{return}
                 self.handleSelectedButton(selectedButton: self.commentButton)
-            }
+            })
             .disposed(by: disposeBag)
         
         profileButton.rx.tap
-            .subscribe { _ in
-                
+            .asDriver()
+            .drive(onNext: {[weak self] _ in
+                guard let self = self else{return}
                 self.handleSelectedButton(selectedButton: self.profileButton)
-            }
+            })
             .disposed(by: disposeBag)
         
     }
