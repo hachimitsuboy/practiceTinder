@@ -13,6 +13,9 @@
 		552E79DD26AD40520003D52D /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E79DC26AD40520003D52D /* UIView-Extension.swift */; };
 		552E79DF26AD4E100003D52D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E79DE26AD4E100003D52D /* CardView.swift */; };
 		552E79E126AD6C2A0003D52D /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E79E026AD6C2A0003D52D /* UIColor-Extension.swift */; };
+		552E79E326AD7D5C0003D52D /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E79E226AD7D5C0003D52D /* CardInfoLabel.swift */; };
+		552E79E526AD84080003D52D /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E79E426AD84080003D52D /* UIButton-Extension.swift */; };
+		552E79E726AD85300003D52D /* CardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E79E626AD85300003D52D /* CardImageView.swift */; };
 		55D9B1C626ABD8AA0086A31A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9B1C526ABD8AA0086A31A /* AppDelegate.swift */; };
 		55D9B1C826ABD8AA0086A31A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9B1C726ABD8AA0086A31A /* SceneDelegate.swift */; };
 		55D9B1CA26ABD8AA0086A31A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9B1C926ABD8AA0086A31A /* HomeViewController.swift */; };
@@ -27,6 +30,9 @@
 		552E79DC26AD40520003D52D /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		552E79DE26AD4E100003D52D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		552E79E026AD6C2A0003D52D /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		552E79E226AD7D5C0003D52D /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
+		552E79E426AD84080003D52D /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
+		552E79E626AD85300003D52D /* CardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageView.swift; sourceTree = "<group>"; };
 		55D9B1C226ABD8AA0086A31A /* MatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D9B1C526ABD8AA0086A31A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D9B1C726ABD8AA0086A31A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,8 @@
 				55D9B1DB26ABE6B20086A31A /* BottomControlView.swift */,
 				55D9B1E026AC73140086A31A /* TopControlView.swift */,
 				552E79DE26AD4E100003D52D /* CardView.swift */,
+				552E79E226AD7D5C0003D52D /* CardInfoLabel.swift */,
+				552E79E626AD85300003D52D /* CardImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,6 +116,7 @@
 				55D9B1DD26AC10950086A31A /* UIImage-Extension.swift */,
 				552E79DC26AD40520003D52D /* UIView-Extension.swift */,
 				552E79E026AD6C2A0003D52D /* UIColor-Extension.swift */,
+				552E79E426AD84080003D52D /* UIButton-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -191,12 +200,15 @@
 			files = (
 				55D9B1E126AC73140086A31A /* TopControlView.swift in Sources */,
 				55D9B1CA26ABD8AA0086A31A /* HomeViewController.swift in Sources */,
+				552E79E326AD7D5C0003D52D /* CardInfoLabel.swift in Sources */,
 				55D9B1C626ABD8AA0086A31A /* AppDelegate.swift in Sources */,
 				552E79DD26AD40520003D52D /* UIView-Extension.swift in Sources */,
 				552E79E126AD6C2A0003D52D /* UIColor-Extension.swift in Sources */,
+				552E79E526AD84080003D52D /* UIButton-Extension.swift in Sources */,
 				55D9B1C826ABD8AA0086A31A /* SceneDelegate.swift in Sources */,
 				55D9B1DC26ABE6B20086A31A /* BottomControlView.swift in Sources */,
 				552E79DF26AD4E100003D52D /* CardView.swift in Sources */,
+				552E79E726AD85300003D52D /* CardImageView.swift in Sources */,
 				55D9B1DE26AC10950086A31A /* UIImage-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

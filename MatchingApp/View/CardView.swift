@@ -5,135 +5,62 @@
 //  Created by Nagae on 2021/07/25.
 //
 
-//alpha値を調整することで、like,nopeを消えた様に見せる
+//alpha値を調整することで、like,nopeを消えた様に見せる ep6
+//画像上から下にかけてグラデーションをかけることで、画像が白い場合でも文字を読みやすくさせる　ep7
+//GradientLayerの大きさを指定しなければならない
 
 
 import UIKit
 
 class CardView: UIView {
     
-    let cardImageView: UIImageView = {
-        
-        let iv = UIImageView()
-        iv.backgroundColor = .systemTeal
-        iv.layer.cornerRadius = 12
-        iv.contentMode = .scaleAspectFill
-        iv.image = UIImage(named: "testImage")
-        //clipsToBoundsとは？
-        iv.clipsToBounds = true
-        
-        return iv
-    }()
+    //何これ？
+    private let gradientLayer = CAGradientLayer()
+    // MARK: UIView
     
-    //名前用ラベル
-    let nameLabel:UILabel = {
-        
-        let nameLabel = UILabel()
-        nameLabel.font = .systemFont(ofSize: 36, weight: .heavy)
-        nameLabel.textColor = .white
-        nameLabel.text = "レオリオ, 16"
-        
-        
-        return nameLabel
-    }()
+    private let cardImageView = CardImageView(frame: .zero)
+    private let nameLabel = CardInfoLabel(frame: .zero, labelText: "レオリオ, 16", labelFont: .systemFont(ofSize: 36, weight: .heavy))
+
+    private let residenceLabel = CardInfoLabel(frame: .zero, labelText: "日本、京都", labelFont: .systemFont(ofSize: 20, weight: .regular))
     
-    //住所用ラベル
-    let residenceLabel:UILabel = {
-        
-        let residenceLabel = UILabel()
-        residenceLabel.font = .systemFont(ofSize: 20, weight: .regular)
-        residenceLabel.textColor = .white
-        residenceLabel.text = "日本、京都"
-        
-        
-        return residenceLabel
-    }()
+    private let hobbyLabel = CardInfoLabel(frame: .zero, labelText: "サイクリング", labelFont: .systemFont(ofSize: 25, weight: .regular))
     
-    //趣味用ラベル
-    let hobbyLabel: UILabel = {
-        
-        let hobbyLabel = UILabel()
-        hobbyLabel.font = .systemFont(ofSize: 25, weight: .regular)
-        hobbyLabel.textColor = .white
-        hobbyLabel.text = "サイクリング"
-        
-        
-        return hobbyLabel
-    }()
+    private let introductionLabel = CardInfoLabel(frame: .zero, labelText: "旅行大好き", labelFont: .systemFont(ofSize: 25, weight: .regular))
     
-    //自己紹介用のラベル
-    let introductionLabel: UILabel = {
-        
-        let introductionLabel = UILabel()
-        introductionLabel.font = .systemFont(ofSize: 25, weight: .regular)
-        introductionLabel.textColor = .white
-        introductionLabel.text = "旅行大好き"
-        
-        
-        return introductionLabel
-    }()
+    private let infoButton = UIButton(type: .system).createCardInfoButton()
+
+    private let goodLabel = CardInfoLabel(frame: .zero, labelText: "LIKE", labelColor: .rgb(red: 137, green: 233, blue: 86))
     
+    private let nopeLabel = CardInfoLabel(frame: .zero, labelText: "NOPE", labelColor: .rgb(red: 222, green: 110, blue: 110))
     
-    //情報を表示させるボタン
-    let infoButton:UIButton = {
-        
-        let infoButton = UIButton(type: .system)
-        infoButton.setImage(UIImage(systemName: "info.circle.fill")?.resize(size: .init(width: 40, height: 40)), for: .normal)
-        infoButton.tintColor = .white
-        infoButton.imageView?.contentMode = .scaleAspectFit
-        
-        return infoButton
-        
-    }()
-    
-    let goodLabel:UILabel = {
-        
-        let goodLabel = UILabel()
-        //あらかじめフォントをBoldにしてくれる？
-        goodLabel.font = .boldSystemFont(ofSize: 46)
-        goodLabel.text = "GOOD"
-        goodLabel.textColor = .rgb(red: 137, green: 233, blue: 86)
-        //borderWidthとは？
-        goodLabel.layer.borderWidth = 3
-        //UIColorとCGColorの違いとは？
-        goodLabel.layer.borderColor = UIColor.rgb(red: 137, green: 233, blue: 86).cgColor
-        goodLabel.layer.cornerRadius = 12
-        //文字の配置
-        goodLabel.textAlignment = .center
-        //alpha値はどれだけ透かすか 0だと透明
-        goodLabel.alpha = 0
-        
-        
-        return goodLabel
-    }()
-    
-    let nopeLabel:UILabel = {
-        
-        let nopeLabel = UILabel()
-        nopeLabel.font = .boldSystemFont(ofSize: 46)
-        nopeLabel.text = "NOPE"
-        nopeLabel.textColor = .rgb(red: 222, green: 110, blue: 110)
-        
-        nopeLabel.layer.borderWidth = 3
-        nopeLabel.layer.borderColor = UIColor.rgb(red: 222, green: 110, blue: 110).cgColor
-        nopeLabel.layer.cornerRadius = 12
-        nopeLabel.textAlignment = .center
-        nopeLabel.alpha = 0
-        
-        
-        return nopeLabel
-    }()
     
     override init(frame: CGRect) {
         super .init(frame: frame)
         
         
         setupLayout()
-        
+        setupGradientLayer()
         //UIPanGestureRecongnizerとは！？
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panCardView))
         
         self.addGestureRecognizer(panGesture)
+    }
+    
+    private func setupGradientLayer(){
+        //グラデーションさせる二色を配列に入れる
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        //グラデーションさせる向き（方向）わからん？
+        //→グラデーションを開始させる場所、終わらせる場所をgradientLayerの全体の割合で示してる？（今回はgradientLayerの上から全体の3割の位置からグラデーションが始まり、全体行きすぎた1.1倍のところで終わってる
+        gradientLayer.locations = [0.3, 1,1]
+        //Viewではなく、ImageViewに追加
+        cardImageView.layer.addSublayer(gradientLayer)
+    }
+    
+    //CardViewが作成されたタイミングで、GradientLayerの大きさを指定してあげる
+    
+    override func layoutSubviews() {
+        //gradientLayerの大きさをCardViewの大きさと同じにする
+        gradientLayer.frame = self.bounds
     }
     
     @objc func panCardView(gesture: UIPanGestureRecognizer){
