@@ -10,6 +10,7 @@ import UIKit
 extension UIView{
     
     //引数が与えられなかった場合を考慮し、デフォルトの値で、nilや0を代入している
+    //anchorメソッドを呼んでいるViewの親View（以前に作られたView)のtopAnchor,buttomAnchorなどが代入されている
     
     func anchor( top: NSLayoutYAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil,  right: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, centerX: NSLayoutXAxisAnchor? = nil, width: CGFloat? = nil, height: CGFloat? = nil, topPadding: CGFloat = 0, bottomPadding: CGFloat = 0, leftPadding: CGFloat = 0, rightPadding: CGFloat = 0){
         

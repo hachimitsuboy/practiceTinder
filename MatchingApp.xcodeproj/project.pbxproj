@@ -11,6 +11,7 @@
 		552E79D926AD04860003D52D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 552E79D826AD04860003D52D /* RxCocoa */; };
 		552E79DB26AD04860003D52D /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 552E79DA26AD04860003D52D /* RxRelay */; };
 		552E79DD26AD40520003D52D /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E79DC26AD40520003D52D /* UIView-Extension.swift */; };
+		552E79DF26AD4E100003D52D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552E79DE26AD4E100003D52D /* CardView.swift */; };
 		55D9B1C626ABD8AA0086A31A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9B1C526ABD8AA0086A31A /* AppDelegate.swift */; };
 		55D9B1C826ABD8AA0086A31A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9B1C726ABD8AA0086A31A /* SceneDelegate.swift */; };
 		55D9B1CA26ABD8AA0086A31A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9B1C926ABD8AA0086A31A /* HomeViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		552E79DC26AD40520003D52D /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
+		552E79DE26AD4E100003D52D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		55D9B1C226ABD8AA0086A31A /* MatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D9B1C526ABD8AA0086A31A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D9B1C726ABD8AA0086A31A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				55D9B1DB26ABE6B20086A31A /* BottomControlView.swift */,
 				55D9B1E026AC73140086A31A /* TopControlView.swift */,
+				552E79DE26AD4E100003D52D /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				552E79DD26AD40520003D52D /* UIView-Extension.swift in Sources */,
 				55D9B1C826ABD8AA0086A31A /* SceneDelegate.swift in Sources */,
 				55D9B1DC26ABE6B20086A31A /* BottomControlView.swift in Sources */,
+				552E79DF26AD4E100003D52D /* CardView.swift in Sources */,
 				55D9B1DE26AC10950086A31A /* UIImage-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
